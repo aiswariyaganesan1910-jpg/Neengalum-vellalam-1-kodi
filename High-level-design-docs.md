@@ -22,6 +22,7 @@ To create an interactive quiz application which offers the following views:
 ├── README.md             # Project Documentation
 ├── style.css             # Styles
 ├── main.js               # Glues the other modules
-├── quizBuilder.js        # Quiz Setup
-├── quizEngine.js
-└── quizPresenter.js
+├── quizBuilder.js        # Builds the quiz list
+├── quizEngine.js         # Handles logic
+└── quizPresenter.js      # Handles DOM interactions
+
