@@ -1,6 +1,7 @@
-# Neegalum Vellalam Oru Kodi
+# High Level Design Docs : NVOC
 
-## High Level Design
+## Executive Summary
+
 
 ### Project Overview
 
@@ -8,5 +9,6 @@
    
    1. Design view : Where user can create the questions.
    2. Test view : Where user can test the questions themselves.
+
 
 ### Modules & Dependancies
