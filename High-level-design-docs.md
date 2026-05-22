@@ -44,6 +44,10 @@ const quizDeck = [
 
 ### 3.2 Core Module Function
 
+#### Module 0 (main.js)
+
+
+
 #### Module 1 (quizBuilder.js)
 
 * Inputs
@@ -70,16 +74,15 @@ const QuizBuilder = {
 
 * Inputs
   * **Data Input:** quizDeck list from quizBuilder.js
-  * **User Input:** The user choices during test view
 * Imports
   * **Module 1:** quizBuilder.js
 * Outputs
   * **Question data:** Each questions data, live scoring, and final score
 * Functions
   * **checkAnswer(questionIndex, userChoice):** return true if answer's correct and false otherwise.
-  * **nextQuestion(questionIndex):** return true if next question exits
+  * **nextQuestion(questionIndex):** returns question object if current question exists otherwise returns false
 
-#### Module 3
+#### Module 3 (quizPresenter.js)
 
 kskdajf
 jb
@@ -93,3 +96,25 @@ funtion(ques,choices){
     function(index)
   }
 }
+
+* Inputs
+  * **Data Input:**  question objects from quizEngine.js
+  * **User Input:** The user choices during test view
+* Imports
+  * **Module 2:** quizBuilder.js
+* Outputs
+  * **Question data:** Displays test view
+* Functions
+  * **checkAnswer(questionIndex, userChoice):** return true if answer's correct and false otherwise.
+  * **nextQuestion(questionIndex):** returns question object if current question exists otherwise returns false
+  
+
+
+
+
+    - switch between test view and design view (main.js)
+    - collect user data in design view (module 1)
+    - collect user data in test view (module 3)
+    - comparing correct and wrong answers (module 2)
+    - present each object (module 3)
+    - 
