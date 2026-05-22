@@ -1,13 +1,11 @@
- High Level Design Docs : NVOC
+High Level Design Docs : NVOC
  =============================
 
- ## 1. Executive Summary
- 
+## 1. Executive Summary
 
 ### 1.1 Project Overview
 
 >To create an interactive quiz application which offers the following views:
-
 
 1. **Design view** : Where user can create the questions.
 2. **Test view** : Where user can test the questions themselves.
@@ -24,7 +22,6 @@
 ├── index.html            # Main entry point
 ├── README.md             # Project Documentation
 ├── style.css             # Styles
-├── main.js               # Glues the other modules
 ├── quizBuilder.js        # Builds the quiz list
 ├── quizEngine.js         # Handles logic
 └── quizPresenter.js      # Handles DOM interactions
@@ -33,8 +30,7 @@
 
 ## 3. Javascript Logic & Data Flow
 
-### 3.1 Model quizDeck List 
-
+### 3.1 Model quizDeck List
 
 ```js
   
@@ -46,6 +42,54 @@ const quizDeck = [
 
 ```
 
-### 3.2 Core Module Function 
+### 3.2 Core Module Function
 
+#### Module 1 (quizBuilder.js)
 
+* Inputs
+  * **User Data:** Data entered in the HTML input fields
+* Imports
+  * **None**
+* Outputs
+  * **Structured list:** Returns quizDeck which is a list of question objects
+* Functions
+  * **getQuizDeck():** returns the quizDeck list
+
+```js
+const QuizBuilder = {
+    // Declare DOM varaibles
+    quizDeck: [],
+
+    getQuizDeck() {
+      // returns the quizDeck
+    }
+}
+```
+
+#### Module 2 (quizEngine.js)
+
+* Inputs
+  * **Data Input:** quizDeck list from quizBuilder.js
+  * **User Input:** The user choices during test view
+* Imports
+  * **Module 1:** quizBuilder.js
+* Outputs
+  * **Question data:** Each questions data, live scoring, and final score
+* Functions
+  * **checkAnswer(questionIndex, userChoice):** return true if answer's correct and false otherwise.
+  * **nextQuestion(questionIndex):** return true if next question exits
+
+#### Module 3
+
+kskdajf
+jb
+funtion(ques,choices){
+  kjav
+  
+  if (!mod2.nxtques(index)){
+    final()
+  }
+  else{
+    function(index)
+  }
+}
