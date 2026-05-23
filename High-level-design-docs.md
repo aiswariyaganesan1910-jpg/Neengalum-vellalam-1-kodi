@@ -117,4 +117,4 @@ funtion(ques,choices){
     - collect user data in test view (module 3)
     - comparing correct and wrong answers (module 2)
     - present each object (module 3)
-    - 
+    
