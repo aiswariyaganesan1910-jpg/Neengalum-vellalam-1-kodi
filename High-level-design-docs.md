@@ -99,21 +99,7 @@ const QuizBuilder = {
 * Outputs
   * **Question data:** Displays test view
 * Functions
-<<<<<<< HEAD
-  * **checkAnswer(questionIndex, userChoice):** return true if answer's correct and false otherwise.
-  * **nextQuestion(questionIndex):** returns question object if current question exists otherwise returns false
 
-
-
-
-
-    - switch between test view and design view (main.js)
-    - collect user data in design view (module 1)
-    - collect user data in test view (module 3)
-    - comparing correct and wrong answers (module 2)
-    - present each object (module 3)
-=======
   * **getUserInput():** - reads the user choice
   * **handleInput():** - changes background color and updates score depending on the answer and increments the questionIndex and calls nextQuestion
   * **resultOutput():** - function to show results after the quizDeck is exhausted
->>>>>>> 38eb8ca3b340fee7df31e979bdb1885480510631
