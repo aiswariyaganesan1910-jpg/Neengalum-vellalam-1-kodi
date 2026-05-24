@@ -46,7 +46,13 @@ const quizDeck = [
 
 #### Module 0 (main.js)
 
+```js
+// Imports the other modules
 
+// Gets deck from module 1 and gives it to module 2
+
+// Swtiches view when startTest and endTest is clicked
+```
 
 #### Module 1 (quizBuilder.js)
 
@@ -79,23 +85,11 @@ const QuizBuilder = {
 * Outputs
   * **Question data:** Each questions data, live scoring, and final score
 * Functions
+  * **startEngine(quizDeck):** stores the deck
   * **checkAnswer(questionIndex, userChoice):** return true if answer's correct and false otherwise.
   * **nextQuestion(questionIndex):** returns question object if current question exists otherwise returns false
 
 #### Module 3 (quizPresenter.js)
-
-kskdajf
-jb
-funtion(ques,choices){
-  kjav
-  
-  if (!mod2.nxtques(index)){
-    final()
-  }
-  else{
-    function(index)
-  }
-}
 
 * Inputs
   * **Data Input:**  question objects from quizEngine.js
@@ -105,6 +99,7 @@ funtion(ques,choices){
 * Outputs
   * **Question data:** Displays test view
 * Functions
+<<<<<<< HEAD
   * **checkAnswer(questionIndex, userChoice):** return true if answer's correct and false otherwise.
   * **nextQuestion(questionIndex):** returns question object if current question exists otherwise returns false
 
@@ -117,3 +112,8 @@ funtion(ques,choices){
     - collect user data in test view (module 3)
     - comparing correct and wrong answers (module 2)
     - present each object (module 3)
+=======
+  * **getUserInput():** - reads the user choice
+  * **handleInput():** - changes background color and updates score depending on the answer and increments the questionIndex and calls nextQuestion
+  * **resultOutput():** - function to show results after the quizDeck is exhausted
+>>>>>>> 38eb8ca3b340fee7df31e979bdb1885480510631
