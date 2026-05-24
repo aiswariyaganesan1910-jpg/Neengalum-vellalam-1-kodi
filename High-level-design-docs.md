@@ -72,7 +72,7 @@ const QuizBuilder = {
 
 #### Module 2 (quizEngine.js)
 
-* Inputs
+* Inputs 
   * **Data Input:** quizDeck list from quizBuilder.js
 * Imports
   * **Module 1:** quizBuilder.js
@@ -107,7 +107,7 @@ funtion(ques,choices){
 * Functions
   * **checkAnswer(questionIndex, userChoice):** return true if answer's correct and false otherwise.
   * **nextQuestion(questionIndex):** returns question object if current question exists otherwise returns false
-  
+
 
 
 
@@ -117,4 +117,3 @@ funtion(ques,choices){
     - collect user data in test view (module 3)
     - comparing correct and wrong answers (module 2)
     - present each object (module 3)
-    - 

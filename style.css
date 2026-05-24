@@ -1,0 +1,289 @@
+/* ==========================================================================
+   1. Core Variables & Resets
+   ========================================================================== */
+:root {
+    --primary-color: #4f46e5;      /* Vibrant Indigo */
+    --primary-hover: #4338ca;
+    --success-color: #10b981;      /* Emerald Green */
+    --success-hover: #059669;
+    --danger-color: #ef4444;       /* Coral Red */
+    --danger-hover: #dc2626;
+    --bg-gradient: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
+    --card-bg: #ffffff;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --border-color: #e5e7eb;
+    --radius: 12px;
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* ==========================================================================
+   2. Main Container Card
+   ========================================================================== */
+.container {
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 550px;
+    padding: 40px 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 24px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+/* ==========================================================================
+   3. Forms & Layout Groups (Design View)
+   ========================================================================== */
+.question-group, 
+.options-group, 
+.correct-Answer {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input[type="text"], 
+select {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 1rem;
+    color: var(--text-main);
+    background-color: #f9fafb;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+input[type="text"]:focus, 
+select:focus {
+    background-color: #fff;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+/* Input Row Elements (A, B, C side badges) */
+.choice-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+/* Fixed from duplicate ID to its correct structural mapping */
+.choice-row span, 
+[id="label"] { 
+    background: #f3f4f6;
+    color: var(--text-muted);
+    font-weight: 700;
+    padding: 12px 18px;
+    border: 1px solid var(--border-color);
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+    font-size: 0.95rem;
+}
+
+.choice-row input {
+    border-radius: 0 8px 8px 0;
+}
+
+/* ==========================================================================
+   4. Test Panel Components (Test View)
+   ========================================================================== */
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    background: #f8fafc;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    border: 1px solid var(--border-color);
+}
+
+#live-score {
+    color: var(--success-color);
+}
+
+.question-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    color: var(--text-main);
+}
+
+/* Dynamic Choices Container injected by JS */
+.choices-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+/* Use these styles if you systematically generate option elements in JS */
+.choices-container button.choice-btn {
+    width: 100%;
+    text-align: left;
+    background: #fff;
+    border: 2px solid var(--border-color);
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.choices-container button.choice-btn:hover {
+    border-color: var(--primary-color);
+    background: #f5f3ff;
+}
+
+/* ==========================================================================
+   5. Summary Components (Result View)
+   ========================================================================== */
+.text-center {
+    text-align: center;
+}
+
+.result-page p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.final-result {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem !important;
+    margin-top: 15px;
+}
+
+.score-portal {
+    background: #eef2f6;
+    display: inline-block;
+    padding: 16px 32px;
+    border-radius: 50px;
+    margin: 15px 0 30px 0;
+}
+
+#final-score {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   6. Button Architecture
+   ========================================================================== */
+.button-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+button {
+    flex: 1;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Custom UI Colors assigned via your classes */
+.btn-one {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.btn-one:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-two {
+    background-color: var(--success-color);
+    color: #ffffff;
+}
+
+.btn-two:hover {
+    background-color: var(--success-hover);
+}
+
+/* Targeting structural specific elements directly */
+#btn-end {
+    background-color: var(--danger-color);
+}
+
+#btn-end:hover {
+    background-color: var(--danger-hover);
+}
+
+#btn-restart {
+    background-color: #374151; /* Charcoal */
+}
+
+#btn-restart:hover {
+    background-color: #1f2937;
+}
+
+/* ==========================================================================
+   7. Functional States
+   ========================================================================== */
+.hidden {
+    display: none !important;
+}
