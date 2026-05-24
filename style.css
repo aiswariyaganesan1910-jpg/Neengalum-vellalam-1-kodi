@@ -39,8 +39,8 @@ body {
    ========================================================================== */
 .container {
     background: var(--card-bg);
-    width: 100%;
-    max-width: 550px;
+    width: 80%;
+    /* max-width: 650px; */
     padding: 40px 30px;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
@@ -286,4 +286,17 @@ button:active {
    ========================================================================== */
 .hidden {
     display: none !important;
+}
+
+#design-view {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.preview-panel {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
 }

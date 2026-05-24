@@ -1,17 +1,22 @@
-// 1. Get references to your views
 const designView = document.getElementById('design-view');
 const testView = document.getElementById('test-view');
+const resultView = document.getElementById('result-view');
 
-// 2. Get reference to the "Start Test" button
 const btnStart = document.getElementById('btn-start');
+const btnEnd = document.getElementById('btn-end');
+const btnRestart = document.getElementById('btn-restart');
 
-// 3. Listen for the click event
 btnStart.addEventListener('click', () => {
-    // Hide the Design View by adding the 'hidden' class
     designView.classList.add('hidden');
-    
-    // Show the Test View by removing the 'hidden' class
     testView.classList.remove('hidden');
-    
-    // (Optional) You would also trigger code here to load the first question!
+});
+
+btnEnd.addEventListener('click', () => {
+    testView.classList.add('hidden');
+    resultView.classList.remove('hidden'); 
+});
+
+btnRestart.addEventListener('click', () => {
+    resultView.classList.add('hidden'); 
+    designView.classList.remove('hidden');
 });
