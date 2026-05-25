@@ -99,6 +99,7 @@ const QuizBuilder = {
 * Outputs
   * **Question data:** Displays test view
 * Functions
+
   * **getUserInput():** - reads the user choice
   * **handleInput():** - changes background color and updates score depending on the answer and increments the questionIndex and calls nextQuestion
   * **resultOutput():** - function to show results after the quizDeck is exhausted
