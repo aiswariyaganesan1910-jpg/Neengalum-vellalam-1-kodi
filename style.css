@@ -300,3 +300,43 @@ button:active {
     border-radius: 8px;
     border: 1px solid var(--border-color);
 }
+/* ==========================================================================
+   4b. Radio Label Layout & Dynamic Coloring (For Presenter)
+   ========================================================================== */
+.choices-container label {
+    display: block;
+    background: #ffffff;
+    border: 2px solid var(--border-color);
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+/* Hover style for unselected choice panels */
+.choices-container label:hover {
+    border-color: var(--primary-color);
+    background: #f5f3ff;
+}
+
+/* When a radio button inside the label is disabled, change cursor look */
+.choices-container label input[disabled] {
+    cursor: not-allowed;
+}
+
+/* GREEN Feedback: Triggered by class manipulation rules inside Module 3 */
+.choices-container label.correct {
+    background-color: #d1fae5 !important;    /* Emerald Light Tint */
+    border-color: var(--success-color) !important;
+    color: #065f46 !important;               /* Dark Emerald Text */
+    font-weight: 600;
+}
+
+/* RED Feedback: Triggered by class manipulation rules inside Module 3 */
+.choices-container label.incorrect {
+    background-color: #fee2e2 !important;    /* Coral Light Tint */
+    border-color: var(--danger-color) !important;
+    color: #991b1b !important;               /* Dark Coral Text */
+}

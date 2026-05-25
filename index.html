@@ -1,135 +1,148 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NVOC Quiz</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="container">
-    <h1>NVOC Quiz Portal</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NVOC Quiz</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>NVOC Quiz Portal</h1>
 
-    <!-- Design view -->
-    <!-- Design view -->
-    <section id="design-view" class="view-panel">
-      <div class="view-container">
-        <h2>Design view</h2>
-        <form id="quiz-form">
-          <div class="question-group">
-            <label for="input-question">Question</label>
-            <input
-              type="text"
-              id="input-question"
-              placeholder="Enter your Question"
-              required
-            />
-          </div>
-          <div class="options-group">
-            <label>Choices:</label>
-            <div class="choice-row">
-              <span class="choice-label">A</span>
+      <!-- Design view -->
+      <!-- Design view -->
+      <section id="design-view" class="view-panel">
+        <div class="view-container">
+          <h2>Design view</h2>
+          <form id="quiz-form">
+            <div class="question-group">
+              <label for="input-question">Question</label>
               <input
                 type="text"
-                id="choice-a"
-                placeholder="Choice-A"
+                id="input-question"
+                placeholder="Enter your Question"
                 required
               />
             </div>
-            <div class="choice-row">
-              <span class="choice-label">B</span>
-              <input
-                type="text"
-                id="choice-b"
-                placeholder="Choice-B"
-                required
-              />
+            <div class="options-group">
+              <label>Choices:</label>
+              <div class="choice-row">
+                <span class="choice-label">A</span>
+                <input
+                  type="text"
+                  id="choice-a"
+                  placeholder="Choice-A"
+                  required
+                />
+              </div>
+              <div class="choice-row">
+                <span class="choice-label">B</span>
+                <input
+                  type="text"
+                  id="choice-b"
+                  placeholder="Choice-B"
+                  required
+                />
+              </div>
+              <div class="choice-row">
+                <span class="choice-label">C</span>
+                <input
+                  type="text"
+                  id="choice-c"
+                  placeholder="Choice-C"
+                  required
+                />
+              </div>
+              <div class="choice-row">
+                <span class="choice-label">D</span>
+                <input
+                  type="text"
+                  id="choice-d"
+                  placeholder="Choice-D"
+                  required
+                />
+              </div>
             </div>
-            <div class="choice-row">
-              <span class="choice-label">C</span>
-              <input
-                type="text"
-                id="choice-c"
-                placeholder="Choice-C"
-                required
-              />
+            <div class="correct-Answer">
+              <label for="correct-ans">Correct Choice</label>
+              <select id="correct-ans">
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+                <option value="d">D</option>
+              </select>
             </div>
-            <div class="choice-row">
-              <span class="choice-label">D</span>
-              <input
-                type="text"
-                id="choice-d"
-                placeholder="Choice-D"
-                required
-              />
+
+            <div class="button-row">
+              <button type="submit" class="btn-one" id="btn-add">
+                Add Question
+              </button>
+              <!-- Changed type to button so it doesn't trigger form submission -->
             </div>
-          </div>
-          <div class="correct-Answer">
-            <label for="correct-ans">Correct Choice</label>
-            <select id="correct-ans">
-              <option value="a">A</option>
-              <option value="b">B</option>
-              <option value="c">C</option>
-              <option value="d">D</option>
-            </select>
-          </div>
-  
-          <div class="button-row">
-            <button type="submit" class="btn-one" id="btn-add">
-              Add Question
-            </button>
-            <!-- Changed type to button so it doesn't trigger form submission -->
-          </div>
-        </form>
-        
-      </div>
-      
-      <!-- Questions Preview Panel -->
-      <div class="preview-panel">
-        <h3>Added Questions (<span id="preview-count">0</span>)</h3>
-        <div id="preview-list" class="preview-list">
-          <p class="empty-msg">No questions added yet. Use the form above to add some!</p>
+          </form>
         </div>
-      </div>
-      <button type="button" class="btn-two" id="btn-start">
-        Start Test
-      </button>
-    </section>
 
-    <!-- Test view -->
-    <section id="test-view" class="view-panel hidden">
-      <h2>Test View</h2>
+        <!-- Questions Preview Panel -->
+        <div class="preview-panel">
+          <h3>Added Questions (<span id="preview-count">0</span>)</h3>
+          <div id="preview-list" class="preview-list">
+            <p class="empty-msg">
+              No questions added yet. Use the form above to add some!
+            </p>
+          </div>
+        </div>
+        <button type="button" class="btn-two" id="btn-start">Start Test</button>
+      </section>
 
-      <div class="quiz-header">
-        <span id="ques-tracker">Question 1 of X</span>
-        <span id="live-score">Score: 0</span>
-      </div>
-      <p id="display-question" class="question-text">Question</p>
-      <div id="display-choices" class="choices-container"></div>
-      <div class="button-row">
-        <button type="button" class="btn-one" id="btn-next">
-          Next Question
-        </button>
-        <button type="button" class="btn-two" id="btn-end">End Test</button>
-      </div>
-    </section>
+      <!-- Test view -->
+      <section id="test-view" class="view-panel hidden">
+        <h2>Test View</h2>
 
-    <section id="result-view" class="hidden text-center">
-      <h2>Quiz Performance Summary</h2>
-      <div class="result-page">
-        <p>You Have Finished The Quiz Deck!!!</p>
-        <p class="final-result">Final Score</p>
-        <div class="score-portal">
-          <span id="final-score"> 0 / 0</span>
+        <div class="quiz-header">
+          <span id="ques-tracker">Question 1 of X</span>
+          <span id="live-score">Score: 0</span>
+        </div>
+        <p id="display-question" class="question-text">Question</p>
+        <div id="display-choices" class="choices-container">
+          <label>
+            <input type="radio" name="options" value="a" checked />
+            A
+          </label>
+          <label>
+            <input type="radio" name="options" value="b" /> B
+          </label>
+          <label>
+            <input type="radio" name="options" value="c" /> Choice 3
+          </label>
+          <label>
+            <input type="radio" name="options" value="d" /> Choice 4
+          </label>
         </div>
         <div class="button-row">
-          <button id="btn-restart" class="btn-one">
-            Return to Design View
+          <button type="button" class="btn-one" id="btn-next">
+            Next Question
           </button>
+          <button type="button" class="btn-two" id="btn-end">End Test</button>
         </div>
-      </div>
-    </section>
-  </div>
-  <script type="module" src="main.js"></script>
-</body>
+      </section>
+
+      <section id="result-view" class="hidden text-center">
+        <h2>Quiz Performance Summary</h2>
+        <div class="result-page">
+          <p>You Have Finished The Quiz Deck!!!</p>
+          <p class="final-result">Final Score</p>
+          <div class="score-portal">
+            <span id="final-score"> 0 / 0</span>
+          </div>
+          <div class="button-row">
+            <button id="btn-restart" class="btn-one">
+              Return to Design View
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="main.js"></script>
+  </body>
 </html>
