@@ -21,8 +21,9 @@ const QuizEngine = {
     },
 
     nextQuestion(qIndex){
-        if(qindex + 2 == this.quizDeck.length){
-             
+        if(qindex + 1 === this.quizDeck.length){
+             const buttonNext = document.getElementById("btn-next");
+             buttonNext.classList.add('Hidden')
         }
         else if (qIndex < this.quizDeck.length) {
             return this.quizDeck[qIndex];
