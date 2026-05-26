@@ -21,7 +21,10 @@ const QuizEngine = {
     },
 
     nextQuestion(qIndex){
-        if (qIndex < this.quizDeck.length) {
+        if(qindex + 2 == this.quizDeck.length){
+             
+        }
+        else if (qIndex < this.quizDeck.length) {
             return this.quizDeck[qIndex];
         }
         else {
