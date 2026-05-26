@@ -2,15 +2,17 @@ import QuizBuilder from './quizBuilder.js'
 
 const QuizEngine = {
     quizDeck: [],
-
+    score : 0,
     startEngine(quizList){
         this.quizDeck = quizList;
+        this.score = 0;
     },
 
     checkAnswer(qIndex,userChoice) {
         const currentQues = this.quizDeck[qIndex];
 
         if (currentQues.correctChoice == userChoice) {
+            this.score++;
             return true;
         }
         else {
