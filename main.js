@@ -39,6 +39,8 @@ btnRestart.addEventListener('click', () => {
     QuizBuilder.quizDeck = [];
     QuizBuilder.updatePreviewPanel();
 
+    var btnNext = document.getElementById("btn-next");
+    btnNext.classList.remove("hidden");
     resultView.classList.add('hidden'); 
     designView.classList.remove('hidden');
 });
