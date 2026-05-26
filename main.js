@@ -18,12 +18,7 @@ btnStart.addEventListener('click', () => {
         return;
     }
 
-    // 1. Initialize engine properties cleanly
-    QuizEngine.score = 0; 
     QuizEngine.startEngine(freshDeck);
-
-    // 2. Clear out any residual template classes inside your structural template markup views
-    quizPresenter.currentIndex = 0;
 
     // 3. Shift panel visibility toggles
     designView.classList.add('hidden');
