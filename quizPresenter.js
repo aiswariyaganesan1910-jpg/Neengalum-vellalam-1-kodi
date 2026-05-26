@@ -2,6 +2,7 @@ import QuizEngine from './quizEngine.js';
 
 const quizPresenter = {
     currentIndex: 0,
+    hasAnswered: false,
 
     renderQuestion() {
         const choicesContainer = document.getElementById("display-choices");
@@ -9,6 +10,7 @@ const quizPresenter = {
         
         const labels = choicesContainer.querySelectorAll('label');
         nextButton.disabled = true;
+        this.hasAnswered = false; 
 
         const currentQ = QuizEngine.nextQuestion(this.currentIndex);
         if (!currentQ) {
@@ -32,28 +34,37 @@ const quizPresenter = {
             const choiceText = currentQ.choices[index];
             label.innerHTML = `<input type="radio" name="options" value="${letter}"/> <strong>${letter.toUpperCase()}:</strong> ${choiceText}`;
         });
+
+        // 🌟 NEW: Add instant feedback listener directly on choices container change
+        // Clean out any old listeners by replacing the container node
+        const cleanChoicesContainer = choicesContainer.cloneNode(true);
+        choicesContainer.replaceWith(cleanChoicesContainer);
+
+        cleanChoicesContainer.addEventListener('change', (e) => {
+            if (e.target.name === 'options') {
+                this.handleInstantFeedback(e.target.value, cleanChoicesContainer);
+            }
+        });
         
-        nextButton.disabled = false;
+        nextButton.disabled = true; // Stay disabled until an answer is clicked!
     },
 
-    handleAnswerSubmission() {
-        const checkedRadio = document.querySelector('input[name="options"]:checked');
+    // 🌟 NEW: Processes choices instantly upon a user click
+    handleInstantFeedback(userChoice, container) {
+        if (this.hasAnswered) return;
+        this.hasAnswered = true;
+
+        const nextButton = document.getElementById("btn-next");
+        const labels = container.querySelectorAll('label');
+        const allRadios = container.querySelectorAll('input[name="options"]');
         
-        if (!checkedRadio) {
-            alert("Please select an option before moving to the next question!");
-            return false;
-        }
-        
-        const userChoice = checkedRadio.value;
-        const choicesContainer = document.getElementById("display-choices");
-        const labels = choicesContainer.querySelectorAll('label');
-        const allRadios = choicesContainer.querySelectorAll('input[name="options"]');
-        
+        // Disable all radio options right away
         allRadios.forEach(radio => radio.disabled = true);
 
         const isCorrect = QuizEngine.checkAnswer(this.currentIndex, userChoice);
         const correctLetter = QuizEngine.quizDeck[this.currentIndex].correctChoice;
         
+        // Apply your CSS green/red classes immediately
         labels.forEach(label => {
             const radioInput = label.querySelector('input');
             if (radioInput) {
@@ -66,8 +77,11 @@ const quizPresenter = {
             }
         });
 
+        // Update top-bar live scorecard display instantly
         document.getElementById("live-score").textContent = `score: ${QuizEngine.score}`;
-        return true; 
+        
+        // Enable next button since they have completed this question
+        nextButton.disabled = false;
     },
 
     init() {
@@ -77,16 +91,11 @@ const quizPresenter = {
         const cleanNextButton = nextButton.cloneNode(true);
         nextButton.replaceWith(cleanNextButton);
         
+       
         cleanNextButton.addEventListener('click', () => {
-            const answerSubmittedSuccessfully = this.handleAnswerSubmission();
-            
-            if (answerSubmittedSuccessfully) {
-                cleanNextButton.disabled = true;
-                setTimeout(() => {
-                    this.currentIndex++;
-                    this.renderQuestion();
-                }, 1200);
-            }
+            cleanNextButton.disabled = true;
+            this.currentIndex++;
+            this.renderQuestion();
         });
 
         this.renderQuestion();
