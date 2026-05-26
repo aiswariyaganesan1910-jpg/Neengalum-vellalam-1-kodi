@@ -36,8 +36,11 @@ btnEnd.addEventListener('click', () => {
 
 btnRestart.addEventListener('click', () => {
     // Hard reset the creator's dataset array memory so old items don't accumulate across games
-    QuizBuilder.quizDeck = [];
-    QuizBuilder.updatePreviewPanel();
+    resultView.classList.add('hidden'); 
+    designView.classList.remove('hidden');
+    var btnNext = document.getElementById("btn-next");
+    btnNext.classList.remove("hidden");
+    
 
     var btnNext = document.getElementById("btn-next");
     btnNext.classList.remove("hidden");

@@ -21,12 +21,12 @@ const QuizEngine = {
     },
 
     nextQuestion(qIndex){
-        if(qIndex + 1 === this.quizDeck.length){
+        if(qIndex === this.quizDeck.length-1){
              const buttonNext = document.getElementById("btn-next");
              buttonNext.classList.add('hidden')
-             return false;
+             
         }
-        else if (qIndex < this.quizDeck.length) {
+         if (qIndex < this.quizDeck.length) {
             return this.quizDeck[qIndex];
         }
         else {

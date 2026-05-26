@@ -51,6 +51,7 @@ const quizPresenter = {
 
     // 🌟 NEW: Processes choices instantly upon a user click
     handleInstantFeedback(userChoice, container) {
+        console.log("Feedback Triggered");
         if (this.hasAnswered) return;
         this.hasAnswered = true;
 
