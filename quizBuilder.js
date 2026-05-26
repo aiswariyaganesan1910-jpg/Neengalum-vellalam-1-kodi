@@ -62,15 +62,16 @@ const QuizBuilder = {
             question:
                 this.inputQuestion.value,
 
-            choices: {
+            // FIXED: Transformed from an Object into an Array to match presenter loop mappings
+            choices: [
+                this.choiceA.value,
+                this.choiceB.value,
+                this.choiceC.value,
+                this.choiceD.value
+            ],
 
-                A: this.choiceA.value,
-                B: this.choiceB.value,
-                C: this.choiceC.value,
-                D: this.choiceD.value
-            },
-
-            correctAnswer:
+            // FIXED: Renamed property from correctAnswer to correctChoice to sync with QuizEngine
+            correctChoice:
                 this.correctAnswer.value
         };
     },
@@ -119,7 +120,7 @@ const QuizBuilder = {
 
                     <p>
                         Correct Answer:
-                        ${questionObject.correctAnswer.toUpperCase()}
+                        ${questionObject.correctChoice.toUpperCase()}
                     </p>
 
                     <hr>
@@ -162,9 +163,7 @@ const QuizBuilder = {
 
         this.clearInputs();
 
-        alert(
-            "Question Added Successfully"
-        );
+       
     },
 
 
